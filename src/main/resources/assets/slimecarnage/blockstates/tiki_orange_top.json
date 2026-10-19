@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": { "model": "slimecarnage:block/tiki_orange_top" },
+    "facing=north": { "model": "slimecarnage:block/tiki_orange_top"},
+    "facing=east": { "model": "slimecarnage:block/tiki_orange_top", "y": 90 },
+    "facing=south": { "model": "slimecarnage:block/tiki_orange_top", "y": 180 },
+    "facing=west": { "model": "slimecarnage:block/tiki_orange_top", "y": 270 }
+  }
+}

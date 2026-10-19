@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "slimecarnage:block/red_slime_block",
+    "down": "slimecarnage:block/vending_lower_bottom",
+    "up": "slimecarnage:block/vending_upper_top",
+    "north": "slimecarnage:block/vending_upper_front",
+    "south": "slimecarnage:block/vending_upper_back",
+    "east": "slimecarnage:block/vending_upper_side",
+    "west": "slimecarnage:block/vending_upper_side"
+  }
+}
+

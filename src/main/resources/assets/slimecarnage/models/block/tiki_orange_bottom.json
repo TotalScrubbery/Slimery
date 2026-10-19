@@ -1,0 +1,21 @@
+{
+  "textures": {
+    "particle": "slimecarnage:block/orange_slime_block",
+    "0": "minecraft:block/birch_planks"
+  },
+  "elements": [
+    {
+      "name": "Cube",
+      "from": [ 8.0, 0.0, 8.0 ],
+      "to": [ 9.0, 16.0, 9.0 ],
+      "faces": {
+        "north": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 16.0 ] },
+        "east": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 16.0 ] },
+        "south": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 16.0 ] },
+        "west": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 16.0 ] },
+        "up": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+        "down": { "texture": "#0", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+      }
+    }
+  ]
+}

@@ -1,21 +1,19 @@
 package net.scrubbery.slimecarnage;
 
+import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
+import net.scrubbery.slimecarnage.Items.ModItems;
+import net.scrubbery.slimecarnage.Items.SlimeTab;
+import net.scrubbery.slimecarnage.block.ModBlocks;
+import net.scrubbery.slimecarnage.entity.ModEntities;
+import net.scrubbery.slimecarnage.entity.client.*;
+import net.scrubbery.slimecarnage.particle.*;
 import org.slf4j.Logger;
-
 import com.mojang.logging.LogUtils;
-
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.Mod;
@@ -25,10 +23,6 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(SlimeCarnage.MOD_ID)
@@ -45,7 +39,17 @@ public class SlimeCarnage
 
         modEventBus.addListener(this::addCreative);
 
-       modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+        SlimeTab.register(modEventBus);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+
+        ModEntities.ENTITY_TYPES.register(modEventBus);
+
+        ModParticles.register(modEventBus);
+
+        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
     }
 
     private void commonSetup(FMLCommonSetupEvent event)
@@ -53,17 +57,73 @@ public class SlimeCarnage
 
     }
 
-    // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event)
     {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS)
+        {
+            event.accept(ModItems.ORANGEGEL);
+            event.accept(ModItems.YELLOWGEL);
+            event.accept(ModItems.GREENGEL);
+            event.accept(ModItems.REDGEL);
+            event.accept(ModItems.BLUEGEL);
+            event.accept(ModItems.PURPLEGEL);
+            event.accept(ModItems.GREYGEL);
+        }
 
+        if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS)
+        {
+            event.accept(ModBlocks.ORANGE_SLIME_BLOCK);
+            event.accept(ModBlocks.RED_SLIME_BLOCK);
+            event.accept(ModBlocks.BLUE_SLIME_BLOCK);
+            event.accept(ModBlocks.YELLOW_SLIME_BLOCK);
+
+        }
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event)
     {
-        // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+    }
+
+    @EventBusSubscriber(modid = MOD_ID, value = Dist.CLIENT)
+    public static class ClientModEvents
+    {
+        @SubscribeEvent
+        public static void onClientSetup(FMLClientSetupEvent event)
+        {
+            //ModItemProperties.addCustomItemProperties();
+
+            EntityRenderers.register(ModEntities.MOBORANGESLIME.get(), OrangeSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBYELLOWSLIME.get(), YellowSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBBLUESLIME.get(), BlueSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBREDSLIME.get(), RedSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBGREENSLIME.get(), GreenSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBCAMOSLIME.get(), CamoSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBCACTUSSLIME.get(), CactusSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBMONKEYSLIME.get(), MonkeySlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBCAVESLIME.get(), CaveSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBFIERYSLIME.get(), FierySlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBMOOSLIME.get(), MooSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBUNDERSLIME.get(), UnderSlimeRenderer::new);
+
+            //NPCs
+            EntityRenderers.register(ModEntities.NPCOLDMANSLIME.get(), OldManSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCDOCSLIME.get(), DocSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCMARIOSLIME.get(), MarioSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCLUIGISLIME.get(), LuigiSlimeRenderer::new);
+        }
+
+        @SubscribeEvent
+        public static void registerParticleFactories(RegisterParticleProvidersEvent event)
+        {
+            event.registerSpriteSet(ModParticles.ORANGE_SLIME_PARTICLES.get(), OrangeSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.BLUE_SLIME_PARTICLES.get(), BlueSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.RED_SLIME_PARTICLES.get(), RedSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.YELLOW_SLIME_PARTICLES.get(), YellowSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.GREEN_SLIME_PARTICLES.get(), GreenSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.MONKEY_SLIME_PARTICLES.get(), MonkeySlimeParticles.Provider::new);
+        }
+
     }
 }

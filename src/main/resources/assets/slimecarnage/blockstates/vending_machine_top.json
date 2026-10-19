@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "normal": { "model": "slimecarnage:block/vending_mahcine_top_red" },
+    "facing=north": { "model": "slimecarnage:block/vending_mahcine_top_red"},
+    "facing=east": { "model": "slimecarnage:block/vending_mahcine_top_red", "y": 90 },
+    "facing=south": { "model": "slimecarnage:block/vending_mahcine_top_red", "y": 180 },
+    "facing=west": { "model": "slimecarnage:block/vending_mahcine_top_red", "y": 270 }
+  }
+}

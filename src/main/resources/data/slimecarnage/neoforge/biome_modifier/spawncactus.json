@@ -1,0 +1,10 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": "minecraft:desert",
+  "spawners": {
+    "type": "slimecarnage:cactus_slime",
+    "maxCount": 2,
+    "minCount": 1,
+    "weight": 18
+  }
+}

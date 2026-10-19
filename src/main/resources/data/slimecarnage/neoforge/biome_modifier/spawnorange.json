@@ -1,0 +1,15 @@
+{
+  "type": "neoforge:add_spawns",
+  "biomes": [
+    "minecraft:badlands",
+    "minecraft:grove",
+    "minecraft:sunflower_plains",
+    "minecraft:flower_forest"
+  ],
+  "spawners": {
+    "type": "slimecarnage:orange_slime",
+    "maxCount": 3,
+    "minCount": 1,
+    "weight": 18
+  }
+}

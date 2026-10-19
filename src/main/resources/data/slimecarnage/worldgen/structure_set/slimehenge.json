@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "slimecarnage:slimehenge",
+      "weight": 10
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1667999846,
+    "spacing": 25,
+    "separation": 4
+  }
+}

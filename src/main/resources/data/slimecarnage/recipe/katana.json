@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "slimecarnage:blade"
+    },
+    "G": {
+      "item": "slimecarnage:guard"
+    },
+    "H": {
+      "item": "slimecarnage:handle"
+    }
+  },
+  "pattern": [
+    "  B",
+    " G ",
+    "H  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "slimecarnage:katana"
+  }
+}

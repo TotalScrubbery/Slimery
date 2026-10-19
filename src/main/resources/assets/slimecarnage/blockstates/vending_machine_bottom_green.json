@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,half=lower": { "model": "slimecarnage:block/vending_machine_bottom_green", "y": 0 },
+    "facing=east,half=lower":  { "model": "slimecarnage:block/vending_machine_bottom_green", "y": 90 },
+    "facing=south,half=lower": { "model": "slimecarnage:block/vending_machine_bottom_green", "y": 180 },
+    "facing=west,half=lower":  { "model": "slimecarnage:block/vending_machine_bottom_green", "y": 270 },
+    "facing=north,half=upper": { "model": "slimecarnage:block/vending_machine_top_green", "y": 0 },
+    "facing=east,half=upper":  { "model": "slimecarnage:block/vending_machine_top_green", "y": 90 },
+    "facing=south,half=upper": { "model": "slimecarnage:block/vending_machine_top_green", "y": 180 },
+    "facing=west,half=upper":  { "model": "slimecarnage:block/vending_machine_top_green", "y": 270 }
+  }
+}
