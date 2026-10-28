@@ -57,27 +57,11 @@ public class EntityIceSlime extends BadSlime
                 int k = Mth.floor(this.getY());
                 int l = Mth.floor(this.getZ() + (double)((float)(i / 2 % 2 * 2 - 1) * 0.25F));
                 BlockPos blockpos = new BlockPos(j, k, l);
-                if (this.level().getBlockState(blockpos) == Blocks.WATER.defaultBlockState() || this.level().getFluidState(blockpos) == Fluids.WATER.defaultFluidState() && blockstate.canSurvive(this.level(), blockpos)) {
+                BlockPos blockpos2 = new BlockPos(j, k+1, l);
+                if (this.level().getBlockState(blockpos2) == Blocks.AIR.defaultBlockState() && this.level().getBlockState(blockpos) == Blocks.WATER.defaultBlockState() || this.level().getFluidState(blockpos) == Fluids.WATER.defaultFluidState() && blockstate.canSurvive(this.level(), blockpos)) {
                     this.level().setBlockAndUpdate(blockpos, blockstate);
                     this.level().gameEvent(GameEvent.BLOCK_PLACE, blockpos, GameEvent.Context.of(this, blockstate));
                 }
-
-                /*.withEffect(
-                        EnchantmentEffectComponents.LOCATION_CHANGED,
-                        new ReplaceDisk(
-                                new LevelBasedValue.Clamped(LevelBasedValue.perLevel(3.0F, 1.0F), 0.0F, 16.0F),
-                                LevelBasedValue.constant(1.0F),
-                                new Vec3i(0, -1, 0),
-                                Optional.of(
-                                        BlockPredicate.allOf(
-                                                BlockPredicate.matchesTag(new Vec3i(0, 1, 0), BlockTags.AIR),
-                                                BlockPredicate.matchesBlocks(Blocks.WATER),
-                                                BlockPredicate.matchesFluids(Fluids.WATER),
-                                                BlockPredicate.unobstructed()
-                                        )
-                                ),
-                                BlockStateProvider.simple(Blocks.FROSTED_ICE),
-                                Optional.of(GameEvent.BLOCK_PLACE)*/
 
             }
         }

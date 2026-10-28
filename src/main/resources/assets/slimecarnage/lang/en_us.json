@@ -14,7 +14,7 @@
   "item.slimecarnage.blue_slime_chestplate": "Blue Slime Chestplate",
   "item.slimecarnage.blue_slime_helmet": "Blue Slime Helmet",
   "item.slimecarnage.blue_slime_leggings": "Blue Slime Leggings",
-  "item.slimecarnage.red_slime_boots": "red Slime Boots",
+  "item.slimecarnage.red_slime_boots": "Red Slime Boots",
   "item.slimecarnage.red_slime_chestplate": "Red Slime Chestplate",
   "item.slimecarnage.red_slime_helmet": "Red Slime Helmet",
   "item.slimecarnage.red_slime_leggings": "Red Slime Leggings",
@@ -31,9 +31,10 @@
   "item.slimecarnage.guard": "Katana guard",
   "item.slimecarnage.blade": "Katana blade",
   "item.slimecarnage.katana": "Katana",
-  "item.slimecarnage.ninjastar": "Ninja Star",
+  "item.slimecarnage.ninjastar": "Ninja Star (Doesnt fully work)",
 
   "item.slimecarnage.banana": "Banana",
+  "item.slimecarnage.pizzaslice": "Pizza slice",
 
   "item.slimecarnage.spawnorange": "Spawn Orange Slime",
   "item.slimecarnage.spawnyellow": "Spawn Yellow Slime",
