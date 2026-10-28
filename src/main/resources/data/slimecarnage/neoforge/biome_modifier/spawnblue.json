@@ -1,14 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": [
-    "minecraft:stony_peaks",
-    "minecraft:windswept_hills",
-    "minecraft:jagged_peaks"
-  ],
+  "biomes": "#c:is_mountain",
   "spawners": {
     "type": "slimecarnage:blue_slime",
     "maxCount": 3,
     "minCount": 1,
-    "weight": 18
+    "weight": 100
   }
 }

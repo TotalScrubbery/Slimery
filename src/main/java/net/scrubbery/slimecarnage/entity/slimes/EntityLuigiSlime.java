@@ -1,11 +1,13 @@
 package net.scrubbery.slimecarnage.entity.slimes;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.scrubbery.slimecarnage.SlimeSounds;
 
 import java.util.Random;
 
@@ -23,7 +25,7 @@ public class EntityLuigiSlime extends GoodSlime
     public InteractionResult mobInteract(Player player, InteractionHand hand)
     {
         Random rand = new Random();
-        if (!this.level().isClientSide)
+        if (!this.level().isClientSide  && hand == InteractionHand.OFF_HAND)
         {
             int i = rand.nextInt(6);
             if (i == 0)
@@ -53,5 +55,10 @@ public class EntityLuigiSlime extends GoodSlime
         }
 
         return InteractionResult.PASS;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SlimeSounds.MARIO_DEATH.get();
     }
 }

@@ -23,7 +23,7 @@ public class EntityOldManSlime extends GoodSlime
     public InteractionResult mobInteract(Player player, InteractionHand hand)
     {
         Random rand = new Random();
-        if (!this.level().isClientSide)
+        if (!this.level().isClientSide && hand == InteractionHand.OFF_HAND)
         {
             int i = rand.nextInt(6);
             if (i == 0)

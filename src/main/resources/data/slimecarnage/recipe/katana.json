@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
+  "category": "equipment",
   "key": {
     "B": {
-      "item": "slimecarnage:blade"
+      "item": "minecraft:iron_ingot"
     },
     "G": {
       "item": "slimecarnage:guard"

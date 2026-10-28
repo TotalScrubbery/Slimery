@@ -1,0 +1,60 @@
+{
+  "name": "slimecarnage:sewers/corridor_pool",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+      "weight": 50,
+      "element": {
+        "location": "slimecarnage:corridor_straight",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 50,
+      "element": {
+        "location": "slimecarnage:corridor_2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 30,
+      "element": {
+        "location": "slimecarnage:corridor_t",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 20,
+      "element": {
+        "location": "slimecarnage:corridor_end",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 45,
+      "element": {
+        "location": "slimecarnage:corridor_down",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 8,
+      "element": {
+        "location": "slimecarnage:corridor_end_bonus",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

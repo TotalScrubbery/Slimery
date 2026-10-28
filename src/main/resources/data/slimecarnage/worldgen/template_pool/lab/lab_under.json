@@ -1,0 +1,16 @@
+{
+  "name": "slimecarnage:lab_under",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "slimecarnage:labbottom",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

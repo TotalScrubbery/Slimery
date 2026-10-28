@@ -22,8 +22,6 @@ public class EntityOrangeSlime extends BadSlime
     public EntityOrangeSlime(EntityType<? extends BadSlime> entityType, Level level)
     {
         super(entityType, level);
-        //LOGGER.info("Level: " + this.getLevel() + " ");
-        //LOGGER.info("Dmg: " + getAttackDamage() + " ");
     }
 
     protected boolean spawnCustomParticles()

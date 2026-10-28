@@ -11,7 +11,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
-import net.scrubbery.slimecarnage.entity.slimes.EntityCamoSlime;
 import net.scrubbery.slimecarnage.entity.slimes.EntityMooSlime;
 
 @OnlyIn(Dist.CLIENT)

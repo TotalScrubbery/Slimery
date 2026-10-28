@@ -5,11 +5,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.biome.MobSpawnSettings;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.world.BiomeModifier;
 import net.neoforged.neoforge.common.world.BiomeModifiers;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.scrubbery.slimecarnage.Config;
 import net.scrubbery.slimecarnage.SlimeCarnage;
 import net.scrubbery.slimecarnage.entity.ModEntities;
 
@@ -29,58 +32,73 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> SPAWN_FIERY_SLIME = registerKey("spawnfiery");
     public static final ResourceKey<BiomeModifier> SPAWN_MOO_SLIME = registerKey("spawnmoo");
     public static final ResourceKey<BiomeModifier> SPAWN_UNDER_SLIME = registerKey("spawnunder");
+    public static final ResourceKey<BiomeModifier> SPAWN_SNOW_SLIME = registerKey("spawnsnow");
+    public static final ResourceKey<BiomeModifier> SPAWN_ICE_SLIME = registerKey("spawnice");
+    public static final ResourceKey<BiomeModifier> SPAWN_VAMPIRE_SLIME = registerKey("spawnvampire");
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         //var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
 
         context.register(SPAWN_ORANGE_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.BADLANDS), biomes.getOrThrow(Biomes.GROVE), biomes.getOrThrow(Biomes.SUNFLOWER_PLAINS), biomes.getOrThrow(Biomes.FLOWER_FOREST)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBORANGESLIME.get(), 18, 1, 3))));
+                HolderSet.direct(biomes.getOrThrow(Biomes.BADLANDS), biomes.getOrThrow(Biomes.SAVANNA), biomes.getOrThrow(Biomes.SAVANNA_PLATEAU), biomes.getOrThrow(Biomes.WOODED_BADLANDS)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBORANGESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_YELLOW_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.BEACH), biomes.getOrThrow(Biomes.DESERT)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBYELLOWSLIME.get(), 18, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_DESERT)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBYELLOWSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_BLUE_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.STONY_PEAKS), biomes.getOrThrow(Biomes.WINDSWEPT_HILLS), biomes.getOrThrow(Biomes.JAGGED_PEAKS)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBBLUESLIME.get(), 18, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_MOUNTAIN)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBBLUESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_RED_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBREDSLIME.get(), 18, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_PLAINS)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBREDSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_GREEN_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.MANGROVE_SWAMP), biomes.getOrThrow(Biomes.SWAMP)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBGREENSLIME.get(), 12, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_SWAMP)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBGREENSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_CAMO_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.FOREST), biomes.getOrThrow(Biomes.BIRCH_FOREST)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAMOSLIME.get(), 16, 1, 2))));
+                (biomes.getOrThrow(Tags.Biomes.IS_FOREST)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAMOSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_CACTUS_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.DESERT)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCACTUSSLIME.get(), 18, 1, 2))));
+                (biomes.getOrThrow(Tags.Biomes.IS_DESERT)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCACTUSSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_MONKEY_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBMONKEYSLIME.get(), 16, 1, 2))));
+                (biomes.getOrThrow(Tags.Biomes.IS_JUNGLE)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBMONKEYSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_CAVE_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.BIRCH_FOREST), biomes.getOrThrow(Biomes.FOREST),biomes.getOrThrow(Biomes.DESERT), biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA),biomes.getOrThrow(Biomes.TAIGA), biomes.getOrThrow(Biomes.MEADOW), biomes.getOrThrow(Biomes.BADLANDS), biomes.getOrThrow(Biomes.SNOWY_PLAINS)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), 14, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_OVERWORLD)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_FIERY_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.CRIMSON_FOREST), biomes.getOrThrow(Biomes.NETHER_WASTES)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), 14, 1, 3))));
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_MOO_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.MUSHROOM_FIELDS)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBMOOSLIME.get(), 18, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_MUSHROOM)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBMOOSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
         context.register(SPAWN_UNDER_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
-                HolderSet.direct(biomes.getOrThrow(Biomes.JUNGLE), biomes.getOrThrow(Biomes.BIRCH_FOREST), biomes.getOrThrow(Biomes.FOREST),biomes.getOrThrow(Biomes.DESERT), biomes.getOrThrow(Biomes.PLAINS), biomes.getOrThrow(Biomes.SAVANNA),biomes.getOrThrow(Biomes.TAIGA), biomes.getOrThrow(Biomes.MEADOW), biomes.getOrThrow(Biomes.BADLANDS), biomes.getOrThrow(Biomes.SNOWY_PLAINS)),
-                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), 14, 1, 3))));
+                (biomes.getOrThrow(Tags.Biomes.IS_OVERWORLD)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBCAVESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
+
+        context.register(SPAWN_SNOW_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
+                (biomes.getOrThrow(Tags.Biomes.IS_SNOWY)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBSNOWSLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
+
+        context.register(SPAWN_ICE_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
+                (biomes.getOrThrow(Tags.Biomes.IS_SNOWY)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBICESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
+
+        context.register(SPAWN_VAMPIRE_SLIME, new BiomeModifiers.AddSpawnsBiomeModifier(
+                (biomes.getOrThrow(Tags.Biomes.IS_OVERWORLD)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.MOBVAMPIRESLIME.get(), Config.SPAWN_RATE.get(),  Config.MIN_IN_GROUP.get(),  Config.MAX_IN_GROUP.get()))));
 
     }
 

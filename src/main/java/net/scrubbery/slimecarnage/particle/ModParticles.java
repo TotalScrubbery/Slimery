@@ -25,6 +25,10 @@ public class ModParticles {
             PARTICLE_TYPES.register("green_slime_particles", () -> new SimpleParticleType(true));
     public static final Supplier<SimpleParticleType> MONKEY_SLIME_PARTICLES =
             PARTICLE_TYPES.register("monkey_slime_particles", () -> new SimpleParticleType(true));
+    public static final Supplier<SimpleParticleType> BAT_SLIME_PARTICLES =
+            PARTICLE_TYPES.register("bat_slime_particles", () -> new SimpleParticleType(true));
+    public static final Supplier<SimpleParticleType> NINJA_SLIME_PARTICLES =
+            PARTICLE_TYPES.register("ninja_slime_particles", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus eventBus) {
         PARTICLE_TYPES.register(eventBus);

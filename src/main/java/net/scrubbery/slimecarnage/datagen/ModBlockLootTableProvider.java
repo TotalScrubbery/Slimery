@@ -37,6 +37,10 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider
         dropSelf(ModBlocks.VENDING_MACHINE_RED.get());
         dropSelf(ModBlocks.VENDING_MACHINE_GREEN.get());
         dropSelf(ModBlocks.TIKI_ORANGE.get());
+        dropSelf(ModBlocks.TIKI_BLUE.get());
+        dropSelf(ModBlocks.TIKI_RED.get());
+        dropSelf(ModBlocks.TIKI_GREEN.get());
+        dropSelf(ModBlocks.TIKI_YELLOW.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

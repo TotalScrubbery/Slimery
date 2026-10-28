@@ -1,6 +1,7 @@
 package net.scrubbery.slimecarnage;
 
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
@@ -47,6 +48,8 @@ public class SlimeCarnage
         ModEntities.ENTITY_TYPES.register(modEventBus);
 
         ModParticles.register(modEventBus);
+
+        SlimeSounds.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
@@ -106,12 +109,26 @@ public class SlimeCarnage
             EntityRenderers.register(ModEntities.MOBFIERYSLIME.get(), FierySlimeRenderer::new);
             EntityRenderers.register(ModEntities.MOBMOOSLIME.get(), MooSlimeRenderer::new);
             EntityRenderers.register(ModEntities.MOBUNDERSLIME.get(), UnderSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBSNOWSLIME.get(), SnowSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBVAMPIRESLIME.get(), VampireSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBICESLIME.get(), IceSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBNINJASLIME.get(), NinjaSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBMUMMYSLIME.get(), MummySlimeRenderer::new);
 
             //NPCs
             EntityRenderers.register(ModEntities.NPCOLDMANSLIME.get(), OldManSlimeRenderer::new);
             EntityRenderers.register(ModEntities.NPCDOCSLIME.get(), DocSlimeRenderer::new);
             EntityRenderers.register(ModEntities.NPCMARIOSLIME.get(), MarioSlimeRenderer::new);
             EntityRenderers.register(ModEntities.NPCLUIGISLIME.get(), LuigiSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCVILLAGERSLIME.get(), VillagerSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCLEONARDOSLIME.get(), LeonardoSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCDONATELLOSLIME.get(), DonatelloSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCRAPHAELSLIME.get(), RaphaelSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCMICHELANGELOSLIME.get(), MichelangeloSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.NPCINUITSLIME.get(), InuitSlimeRenderer::new);
+
+            //Ninja star that never workS no matter what
+            EntityRenderers.register(ModEntities.NINJASTAR.get(), NinjaStarRenderer::new);
         }
 
         @SubscribeEvent
@@ -123,6 +140,8 @@ public class SlimeCarnage
             event.registerSpriteSet(ModParticles.YELLOW_SLIME_PARTICLES.get(), YellowSlimeParticles.Provider::new);
             event.registerSpriteSet(ModParticles.GREEN_SLIME_PARTICLES.get(), GreenSlimeParticles.Provider::new);
             event.registerSpriteSet(ModParticles.MONKEY_SLIME_PARTICLES.get(), MonkeySlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.BAT_SLIME_PARTICLES.get(), BatSlimeParticles.Provider::new);
+            event.registerSpriteSet(ModParticles.NINJA_SLIME_PARTICLES.get(), NinjaSlimeParticles.Provider::new);
         }
 
     }

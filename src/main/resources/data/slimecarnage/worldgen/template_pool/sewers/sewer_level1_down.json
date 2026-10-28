@@ -1,0 +1,16 @@
+{
+  "name": "slimecarnage:sewers/sewer_level1_down",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "slimecarnage:corridor_down_start",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

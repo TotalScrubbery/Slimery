@@ -1,13 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": [
-    "minecraft:beach",
-    "minecraft:desert"
-  ],
+  "biomes": "#c:is_desert",
   "spawners": {
     "type": "slimecarnage:yellow_slime",
     "maxCount": 3,
     "minCount": 1,
-    "weight": 18
+    "weight": 100
   }
 }

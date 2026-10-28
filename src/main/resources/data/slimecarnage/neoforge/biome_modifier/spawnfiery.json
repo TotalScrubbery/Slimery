@@ -5,9 +5,9 @@
     "minecraft:nether_wastes"
   ],
   "spawners": {
-    "type": "slimecarnage:cave_slime",
+    "type": "slimecarnage:fiery_slime",
     "maxCount": 3,
     "minCount": 1,
-    "weight": 14
+    "weight": 100
   }
 }

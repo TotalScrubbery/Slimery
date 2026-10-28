@@ -22,48 +22,38 @@ public class EntityDocSlime extends GoodSlime
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand)
     {
-        Random rand = new Random();
-        int i = rand.nextInt(6);
-        //if (!player.level().isClientSide)
 
-            if (i == 0 && !player.level().isClientSide)
+        Random rand = new Random();
+        if (!this.level().isClientSide && hand == InteractionHand.OFF_HAND)
+        {
+            int i = rand.nextInt(6);
+            if (i == 0)
             {
                 player.sendSystemMessage(Component.literal("Doc: Marty, is that you?"));
-                return InteractionResult.PASS;
             }
-            else if (i == 1 && !player.level().isClientSide)
-            {
+
+            if (i == 1) {
                 player.sendSystemMessage(Component.literal("Doc: 1.21 Gigawatts!"));
-                return InteractionResult.PASS;
             }
-            else if (i == 2 && !player.level().isClientSide)
-            {
+
+            if (i == 2) {
                 player.sendSystemMessage(Component.literal("Doc: Great Scott!"));
-                return InteractionResult.PASS;
             }
-            else if (i == 3 && !player.level().isClientSide)
-            {
+
+            if (i == 3) {
                 player.sendSystemMessage(Component.literal("Doc: Roads? Where we're going we don't need roads."));
-                return InteractionResult.PASS;
             }
-            else if (i == 4 && !player.level().isClientSide)
-            {
+
+            if (i == 4) {
                 player.sendSystemMessage(Component.literal("Doc: 88 miles per hour."));
-                return InteractionResult.PASS;
             }
-            else if (i == 5 && !player.level().isClientSide)
-            {
+
+            if (i == 5) {
                 player.sendSystemMessage(Component.literal("Doc: I Finally Invent Something That Works!"));
-                return InteractionResult.PASS;
             }
-            else
-            {
-                return InteractionResult.FAIL;
-            }
+        }
 
-
-        //return InteractionResult.FAIL;
-
+        return InteractionResult.PASS;
     }
 
 }

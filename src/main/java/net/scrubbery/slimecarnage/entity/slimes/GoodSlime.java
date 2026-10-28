@@ -4,25 +4,41 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.util.TimeUtil;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.NeutralMob;
 import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.DefendVillageTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
+import net.minecraft.world.entity.monster.Creeper;
+import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
+import javax.annotation.Nullable;
+import java.util.UUID;
 
-public class GoodSlime extends PathfinderMob
+
+public class GoodSlime extends PathfinderMob implements NeutralMob
 {
     private static final EntityDataAccessor<Integer> ID_SIZE = SynchedEntityData.defineId(GoodSlime.class, EntityDataSerializers.INT);
     private boolean wasOnGround;
     public float squish;
     public float oSquish;
+
+    private static final UniformInt PERSISTENT_ANGER_TIME = TimeUtil.rangeOfSeconds(10, 20);
+    private int remainingPersistentAngerTime;
+    @Nullable
+    private UUID persistentAngerTarget;
 
     public GoodSlime(EntityType<? extends GoodSlime> entityType, Level level)
     {
@@ -36,12 +52,19 @@ public class GoodSlime extends PathfinderMob
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new FloatGoal(this));
-        //this.goalSelector.addGoal(2, new
-        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.0));
-        this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(3, new RandomLookAroundGoal(this));
-        this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, Mob.class, true));
+        this.goalSelector.addGoal(0, new FloatGoal(this));
+        this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.0, true));
+        this.goalSelector.addGoal(2, new MoveTowardsTargetGoal(this, 0.5, 32.0F));
+        this.goalSelector.addGoal(4, new RandomStrollGoal(this, 0.7));
+        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, 10, true, false, this::isAngryAt));
+        this.targetSelector
+                .addGoal(
+                        3, new NearestAttackableTargetGoal<>(this, EntityNinjaSlime.class, 5, false, false, p_28879_ -> p_28879_ instanceof Enemy)
+                );
+        this.targetSelector.addGoal(4, new ResetUniversalAngerTargetGoal<>(this, false));
     }
 
     @Override
@@ -56,8 +79,6 @@ public class GoodSlime extends PathfinderMob
         this.entityData.set(ID_SIZE, 1);
         this.reapplyPosition();
         this.refreshDimensions();
-        this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double)(0.2F + 0.1F * (float)2));
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(0);
         if (resetHealth)
         {
             this.setHealth(this.getMaxHealth());
@@ -91,9 +112,38 @@ public class GoodSlime extends PathfinderMob
 
     public static AttributeSupplier.Builder createMobAttributes()
     {
-        return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, (double)100.0F).add(Attributes.MOVEMENT_SPEED, (double)0.2F).add(Attributes.ATTACK_DAMAGE, 0);
+        return Mob.createMobAttributes()
+            .add(Attributes.MAX_HEALTH, 100.0)
+            .add(Attributes.MOVEMENT_SPEED, 0.25)
+            .add(Attributes.KNOCKBACK_RESISTANCE, 1.0)
+            .add(Attributes.ATTACK_DAMAGE, 4.0)
+            .add(Attributes.STEP_HEIGHT, 1.0);
+        //return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, (double)100.0F).add(Attributes.MOVEMENT_SPEED, (double)0.2F).add(Attributes.ATTACK_DAMAGE, 0);
+    }
+    @Override
+    public void startPersistentAngerTimer() {
+        this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
     }
 
+    @Override
+    public void setRemainingPersistentAngerTime(int time) {
+        this.remainingPersistentAngerTime = time;
+    }
 
+    @Override
+    public int getRemainingPersistentAngerTime() {
+        return this.remainingPersistentAngerTime;
+    }
+
+    @Override
+    public void setPersistentAngerTarget(@Nullable UUID target) {
+        this.persistentAngerTarget = target;
+    }
+
+    @Nullable
+    @Override
+    public UUID getPersistentAngerTarget() {
+        return this.persistentAngerTarget;
+    }
 }
 

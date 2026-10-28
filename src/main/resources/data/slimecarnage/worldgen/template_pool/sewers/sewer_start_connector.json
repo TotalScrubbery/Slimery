@@ -1,0 +1,16 @@
+{
+  "name": "slimecarnage:sewers/sewer_start_connector",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "slimecarnage:start_connector",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

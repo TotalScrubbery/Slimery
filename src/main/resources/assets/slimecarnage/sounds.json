@@ -1,0 +1,20 @@
+{
+  "vamp_amb": {
+    "subtitle": "sounds.slimecarnage.vamp_amb",
+    "sounds": [
+      "slimecarnage:vamp_amb"
+    ]
+  },
+  "vamp_laugh": {
+    "subtitle": "sounds.slimecarnage.vamp_laugh",
+    "sounds": [
+      "slimecarnage:vamp_laugh"
+    ]
+  },
+  "mario_die": {
+    "subtitle": "sounds.slimecarnage.mario_die",
+    "sounds": [
+      "slimecarnage:mario_die"
+    ]
+  }
+}

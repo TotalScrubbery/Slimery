@@ -1,0 +1,16 @@
+{
+  "name": "slimecarnage:sewers/pool2pt2",
+  "fallback": "minecraft:empty",
+  "elements": [
+    {
+
+      "weight": 1,
+      "element": {
+        "location": "slimecarnage:level2_part2",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    }
+  ]
+}

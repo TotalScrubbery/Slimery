@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "group": "slime",
+  "ingredient": {
+    "item": "slimecarnage:raw_slime_ingot"
+  },
+  "result": {
+    "id": "slimecarnage:baked_slime_ingot"
+  }
+}

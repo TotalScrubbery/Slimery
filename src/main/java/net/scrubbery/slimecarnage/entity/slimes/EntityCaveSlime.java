@@ -18,7 +18,7 @@ public class EntityCaveSlime extends BadSlime
 
     public static boolean checkTheSpawnRules(EntityType<EntityCaveSlime> cave, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random)
     {
-        if (pos.getY() >= level.getSeaLevel())
+        if (pos.getY() >= 75  && pos.getY() <= 0)
         {
             return false;
         }

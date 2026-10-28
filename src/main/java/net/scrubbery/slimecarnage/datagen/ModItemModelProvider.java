@@ -37,6 +37,7 @@ public class ModItemModelProvider extends ItemModelProvider
         basicItem(ModItems.FIERY_SLIME_EGG.get());
         basicItem(ModItems.MOO_SLIME_EGG.get());
         basicItem(ModItems.UNDER_SLIME_EGG.get());
+        basicItem(ModItems.SNOW_SLIME_EGG.get());
 
         basicItem(ModItems.OLD_MAN_EGG.get());
         basicItem(ModItems.DOC_EGG.get());

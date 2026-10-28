@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "slimecarnage:tiki_blue_bottom"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "slimecarnage:blocks/tiki_blue_bottom"
+}

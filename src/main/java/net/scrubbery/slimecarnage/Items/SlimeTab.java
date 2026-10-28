@@ -29,12 +29,37 @@ public class SlimeTab
                         output.accept(ModItems.PURPLEGEL);
                         output.accept(ModItems.GREYGEL);
 
+                        output.accept(ModItems.RAWSLIMEINGOT);
+                        output.accept(ModItems.BAKEDSLIMEINGOT);
+
+                        output.accept(ModItems.BLUE_SLIME_BOOTS);
+                        output.accept(ModItems.BLUE_SLIME_CHESTPLATE);
+                        output.accept(ModItems.BLUE_SLIME_HELMET);
+                        output.accept(ModItems.BLUE_SLIME_LEGGINGS);
+
+                        output.accept(ModItems.RED_SLIME_BOOTS);
+                        output.accept(ModItems.RED_SLIME_CHESTPLATE);
+                        output.accept(ModItems.RED_SLIME_HELMET);
+                        output.accept(ModItems.RED_SLIME_LEGGINGS);
+
+                        output.accept(ModItems.GREEN_SLIME_BOOTS);
+                        output.accept(ModItems.GREEN_SLIME_CHESTPLATE);
+                        output.accept(ModItems.GREEN_SLIME_HELMET);
+                        output.accept(ModItems.GREEN_SLIME_LEGGINGS);
+
+                        output.accept(ModItems.YELLOW_SLIME_BOOTS);
+                        output.accept(ModItems.YELLOW_SLIME_CHESTPLATE);
+                        output.accept(ModItems.YELLOW_SLIME_HELMET);
+                        output.accept(ModItems.YELLOW_SLIME_LEGGINGS);
+
                         output.accept(ModItems.KATANAHANDLE);
                         output.accept(ModItems.KATANAGUARD);
                         output.accept(ModItems.KATANABLADE);
                         output.accept(ModItems.THEKATANA);
+                        output.accept(ModItems.NINJASTAR);
 
                         output.accept(ModItems.SLIME_BANANA);
+                        output.accept(ModItems.SLIME_PIZZA);
 
                         output.accept(ModBlocks.ORANGE_SLIME_BLOCK);
                         output.accept(ModBlocks.RED_SLIME_BLOCK);
@@ -60,11 +85,22 @@ public class SlimeTab
                         output.accept(ModItems.FIERY_SLIME_EGG);
                         output.accept(ModItems.MOO_SLIME_EGG);
                         output.accept(ModItems.UNDER_SLIME_EGG);
+                        output.accept(ModItems.SNOW_SLIME_EGG);
+                        output.accept(ModItems.VAMPIRE_SLIME_EGG);
+                        output.accept(ModItems.ICE_SLIME_EGG);
+                        output.accept(ModItems.NINJA_SLIME_EGG);
+                        output.accept(ModItems.MUMMY_SLIME_EGG);
 
                         output.accept(ModItems.OLD_MAN_EGG);
                         output.accept(ModItems.DOC_EGG);
                         output.accept(ModItems.MARIO_EGG);
                         output.accept(ModItems.LUIGI_EGG);
+                        output.accept(ModItems.VILLAGER_EGG);
+                        output.accept(ModItems.LEO_EGG);
+                        output.accept(ModItems.DON_EGG);
+                        output.accept(ModItems.RAPH_EGG);
+                        output.accept(ModItems.MIKEY_EGG);
+                        output.accept(ModItems.INUIT_EGG);
                     }).build());
 
     public static void register(IEventBus eventBus)

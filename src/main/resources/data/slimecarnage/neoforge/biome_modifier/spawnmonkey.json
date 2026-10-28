@@ -1,10 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": "minecraft:jungle",
+  "biomes": "#c:is_jungle",
   "spawners": {
     "type": "slimecarnage:monkey_slime",
     "maxCount": 2,
     "minCount": 1,
-    "weight": 16
+    "weight": 120
   }
 }

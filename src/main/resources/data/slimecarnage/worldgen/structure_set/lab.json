@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "slimecarnage:lab",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1184745137,
+    "spacing": 80,
+    "separation": 17
+  }
+}

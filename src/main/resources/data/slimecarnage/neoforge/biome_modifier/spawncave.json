@@ -1,21 +1,10 @@
 {
   "type": "neoforge:add_spawns",
-  "biomes": [
-    "minecraft:jungle",
-    "minecraft:birch_forest",
-    "minecraft:forest",
-    "minecraft:desert",
-    "minecraft:plains",
-    "minecraft:savanna",
-    "minecraft:taiga",
-    "minecraft:meadow",
-    "minecraft:badlands",
-    "minecraft:snowy_plains"
-  ],
+  "biomes":"#c:is_overworld",
   "spawners": {
     "type": "slimecarnage:cave_slime",
     "maxCount": 3,
     "minCount": 1,
-    "weight": 14
+    "weight": 200
   }
 }

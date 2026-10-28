@@ -65,13 +65,25 @@ public class ModEntities
             register("under_slime", EntityType.Builder.<EntityUnderSlime>of(EntityUnderSlime::new, MobCategory.MONSTER)
                     .sized(0.5F, 0.5F)));
 
-    /*To create:
-        Ice Slime
-        Mummy Slime
-        Ninja Slime
-        Snow Slime
-        Ninja Turtle Slimes
-    */
+    public static final Supplier<EntityType<EntitySnowSlime>> MOBSNOWSLIME = ENTITY_TYPES.register("snow_slime", () ->
+            register("snow_slime", EntityType.Builder.<EntitySnowSlime>of(EntitySnowSlime::new, MobCategory.MONSTER)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityVampireSlime>> MOBVAMPIRESLIME = ENTITY_TYPES.register("vampire_slime", () ->
+            register("vampire_slime", EntityType.Builder.<EntityVampireSlime>of(EntityVampireSlime::new, MobCategory.MONSTER)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityIceSlime>> MOBICESLIME = ENTITY_TYPES.register("ice_slime", () ->
+            register("ice_slime", EntityType.Builder.<EntityIceSlime>of(EntityIceSlime::new, MobCategory.MONSTER)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityNinjaSlime>> MOBNINJASLIME = ENTITY_TYPES.register("ninja_slime", () ->
+            register("ninja_slime", EntityType.Builder.<EntityNinjaSlime>of(EntityNinjaSlime::new, MobCategory.MONSTER)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityMummySlime>> MOBMUMMYSLIME = ENTITY_TYPES.register("mummy_slime", () ->
+            register("mummy_slime", EntityType.Builder.<EntityMummySlime>of(EntityMummySlime::new, MobCategory.MONSTER)
+                    .sized(0.5F, 0.5F)));
 
     //NPC slimes
     public static final Supplier<EntityType<EntityOldManSlime>> NPCOLDMANSLIME = ENTITY_TYPES.register("old_man_slime", () ->
@@ -90,6 +102,35 @@ public class ModEntities
             register("luigi_slime", EntityType.Builder.<EntityLuigiSlime>of(EntityLuigiSlime::new, MobCategory.MISC)
                     .sized(0.5F, 0.5F)));
 
+    public static final Supplier<EntityType<EntityLeonardoSlime>> NPCLEONARDOSLIME = ENTITY_TYPES.register("leonardo_slime", () ->
+            register("leonardo_slime", EntityType.Builder.<EntityLeonardoSlime>of(EntityLeonardoSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityDonatelloSlime>> NPCDONATELLOSLIME = ENTITY_TYPES.register("donatello_slime", () ->
+            register("donatello_slime", EntityType.Builder.<EntityDonatelloSlime>of(EntityDonatelloSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityRaphaelSlime>> NPCRAPHAELSLIME = ENTITY_TYPES.register("raphael_slime", () ->
+            register("raphael_slime", EntityType.Builder.<EntityRaphaelSlime>of(EntityRaphaelSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityMichelangeloSlime>> NPCMICHELANGELOSLIME = ENTITY_TYPES.register("michelangelo_slime", () ->
+            register("michelangelo_slime", EntityType.Builder.<EntityMichelangeloSlime>of(EntityMichelangeloSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+    
+    public static final Supplier<EntityType<EntityVillagerSlime>> NPCVILLAGERSLIME = ENTITY_TYPES.register("villager_slime", () ->
+            register("villager_slime", EntityType.Builder.<EntityVillagerSlime>of(EntityVillagerSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+
+    public static final Supplier<EntityType<EntityInuitSlime>> NPCINUITSLIME = ENTITY_TYPES.register("inuit_slime", () ->
+            register("inuit_slime", EntityType.Builder.<EntityInuitSlime>of(EntityInuitSlime::new, MobCategory.MISC)
+                    .sized(0.5F, 0.5F)));
+    
+    //Ninja star that wont work so annoying
+    public static final Supplier<EntityType<EntityNinjaStar>> NINJASTAR = ENTITY_TYPES.register("ninjastar", () ->
+            register("ninjastar", EntityType.Builder.<EntityNinjaStar>of(EntityNinjaStar::new, MobCategory.MISC)
+                    .sized(1F, 1F)));
+
     public static void registerEntityAttributes(EntityAttributeCreationEvent event)
     {
         event.put(ModEntities.MOBORANGESLIME.get(), EntityOrangeSlime.createAttributes().build());
@@ -104,11 +145,21 @@ public class ModEntities
         event.put(ModEntities.MOBFIERYSLIME.get(), EntityFierySlime.createAttributes().build());
         event.put(ModEntities.MOBMOOSLIME.get(), EntityMooSlime.createAttributes().build());
         event.put(ModEntities.MOBUNDERSLIME.get(), EntityUnderSlime.createAttributes().build());
+        event.put(ModEntities.MOBSNOWSLIME.get(), EntitySnowSlime.createAttributes().build());
+        event.put(ModEntities.MOBICESLIME.get(), EntityIceSlime.createAttributes().build());
+        event.put(ModEntities.MOBVAMPIRESLIME.get(), EntityVampireSlime.createAttributes().build());
+        event.put(ModEntities.MOBNINJASLIME.get(), EntityNinjaSlime.createAttributes().build());
+        event.put(ModEntities.MOBMUMMYSLIME.get(), EntityMummySlime.createAttributes().build());
 
         event.put(ModEntities.NPCOLDMANSLIME.get(), EntityOldManSlime.createMobAttributes().build());
         event.put(ModEntities.NPCDOCSLIME.get(), EntityDocSlime.createMobAttributes().build());
         event.put(ModEntities.NPCMARIOSLIME.get(), EntityDocSlime.createMobAttributes().build());
         event.put(ModEntities.NPCLUIGISLIME.get(), EntityDocSlime.createMobAttributes().build());
+        event.put(ModEntities.NPCVILLAGERSLIME.get(), EntityDocSlime.createMobAttributes().build());
+        event.put(ModEntities.NPCLUIGISLIME.get(), EntityLeonardoSlime.createMobAttributes().build());
+        event.put(ModEntities.NPCLUIGISLIME.get(), EntityDonatelloSlime.createMobAttributes().build());
+        event.put(ModEntities.NPCLUIGISLIME.get(), EntityRaphaelSlime.createMobAttributes().build());
+        event.put(ModEntities.NPCLUIGISLIME.get(), EntityMichelangeloSlime.createMobAttributes().build());
     }
 
     public static <T extends Entity> EntityType<T> register(String id, EntityType.Builder<T> builder)
