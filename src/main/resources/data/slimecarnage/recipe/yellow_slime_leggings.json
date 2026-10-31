@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "slimecarnage:baked_slime_ingot"
+    },
+    "G": {
+      "item": "slimecarnage:yellowgel"
+    }
+  },
+  "pattern": [
+    "III",
+    "I I",
+    "G G"
+  ],
+  "result": {
+    "count": 1,
+    "id": "slimecarnage:yellow_slime_leggings"
+  }
+}

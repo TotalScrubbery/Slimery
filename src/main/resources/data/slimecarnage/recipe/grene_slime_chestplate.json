@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "slimecarnage:baked_slime_ingot"
+    },
+    "G": {
+      "item": "slimecarnage:greengel"
+    }
+  },
+  "pattern": [
+    "G G",
+    "III",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "slimecarnage:green_slime_chestplate"
+  }
+}
