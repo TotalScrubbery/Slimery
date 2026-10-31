@@ -82,13 +82,6 @@ public class TikiRed extends Block
     }
 
     @Override
-    protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
-        BlockPos blockpos = pos.below();
-        BlockState blockstate = level.getBlockState(blockpos);
-        return state.getValue(HALF) == DoubleBlockHalf.LOWER ? blockstate.isFaceSturdy(level, blockpos, Direction.UP) : blockstate.is(this);
-    }
-
-    @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
 
         DoubleBlockHalf doubleblockhalf = state.getValue(HALF);

@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 import net.neoforged.neoforge.client.event.RegisterParticleProvidersEvent;
 import net.scrubbery.slimecarnage.Items.ModItems;
 import net.scrubbery.slimecarnage.Items.SlimeTab;
@@ -12,6 +13,7 @@ import net.scrubbery.slimecarnage.block.ModBlocks;
 import net.scrubbery.slimecarnage.entity.ModEntities;
 import net.scrubbery.slimecarnage.entity.client.*;
 import net.scrubbery.slimecarnage.particle.*;
+import net.scrubbery.slimecarnage.village.SlimeVillagers;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -25,7 +27,6 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(SlimeCarnage.MOD_ID)
 public class SlimeCarnage
 {
@@ -52,6 +53,8 @@ public class SlimeCarnage
         SlimeSounds.register(modEventBus);
 
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+
+        SlimeVillagers.register(modEventBus);
 
     }
 
@@ -95,7 +98,6 @@ public class SlimeCarnage
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            //ModItemProperties.addCustomItemProperties();
 
             EntityRenderers.register(ModEntities.MOBORANGESLIME.get(), OrangeSlimeRenderer::new);
             EntityRenderers.register(ModEntities.MOBYELLOWSLIME.get(), YellowSlimeRenderer::new);
@@ -127,7 +129,7 @@ public class SlimeCarnage
             EntityRenderers.register(ModEntities.NPCMICHELANGELOSLIME.get(), MichelangeloSlimeRenderer::new);
             EntityRenderers.register(ModEntities.NPCINUITSLIME.get(), InuitSlimeRenderer::new);
 
-            //Ninja star that never workS no matter what
+            //Ninja star that never works no matter what
             EntityRenderers.register(ModEntities.NINJASTAR.get(), NinjaStarRenderer::new);
         }
 
@@ -143,6 +145,11 @@ public class SlimeCarnage
             event.registerSpriteSet(ModParticles.BAT_SLIME_PARTICLES.get(), BatSlimeParticles.Provider::new);
             event.registerSpriteSet(ModParticles.NINJA_SLIME_PARTICLES.get(), NinjaSlimeParticles.Provider::new);
         }
+
+        /*@SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(SlimeMenuTypes.VEND_RED_MENU.get(), VendingRedScreen::new);
+        }*/
 
     }
 }

@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "slimecarnage:slime_village",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1667999847,
+    "spacing": 43,
+    "separation": 7
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_corner_01",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_corner_02",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_corner_03",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_01",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_02",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_03",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 7
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_04",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 7
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_05",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_straight_06",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_01",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_02",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_03",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_04",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_05",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_crossroad_06",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:legacy_single_pool_element",
+        "location": "slimecarnage:village/street_turn_01",
+        "processors": "minecraft:street_plains",
+        "projection": "terrain_matching"
+      },
+      "weight": 3
+    }
+  ],
+  "fallback": "slimecarnage:slimevillage/terminators"
+}
