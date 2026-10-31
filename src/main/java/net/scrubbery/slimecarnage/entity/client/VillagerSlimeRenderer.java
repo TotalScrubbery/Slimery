@@ -36,9 +36,9 @@ public class VillagerSlimeRenderer extends MobRenderer<EntityVillagerSlime, Slim
             case "butcher":
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/butcherslime.png");
             case "armorer":
-                return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/smithslime.png");
+                return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/armorerslime.png");
             case "cartographer":
-                return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/villagerslime.png");
+                return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/cartographerslimeslime.png");
             case "fisherman":
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/farmerslime.png");
             case "fletcher":
