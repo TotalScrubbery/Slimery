@@ -5,7 +5,7 @@
     "down": "slimecarnage:block/vending_lower_bottom",
     "up": "slimecarnage:block/vending_upper_top",
     "north": "slimecarnage:block/vending_upper_front2",
-    "south": "slimecarnage:block/vending_upper_back2",
+    "south": "slimecarnage:block/vending_upper_back",
     "east": "slimecarnage:block/vending_upper_side2",
     "west": "slimecarnage:block/vending_upper_side2"
   }
