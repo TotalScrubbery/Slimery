@@ -1,29 +1,28 @@
 package net.scrubbery.slimecarnage.entity.slimes;
 
-import com.mojang.logging.LogUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.dimension.DimensionType;
-import org.slf4j.Logger;
 
+import javax.annotation.Nullable;
 import java.util.Random;
-
 
 public class BadSlime extends Slime
 {
@@ -49,58 +48,41 @@ public class BadSlime extends Slime
     }
 
     @Override
-    public void setSize(int size, boolean resetHealth)
-    {
-        if (this.getLevel() == 1) {
-            this.xpReward = size  * 2;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.5F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(2.0);
-            this.entityData.set(ID_SIZE, 1);
-        }
-        else if (this.getLevel() == 2) {
-            this.xpReward = size * 2;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(15.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.4F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(1.0);
-            this.entityData.set(ID_SIZE, 1);
-        }
-        else if (this.getLevel() == 3) {
-            this.xpReward = size * 2;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(20.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.3F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(3.0);
-            this.entityData.set(ID_SIZE, 2);
-        }
-        else if (this.getLevel() == 4) {
-            this.xpReward = size * 2;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(30.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.25F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(4.0);
-            this.entityData.set(ID_SIZE, 2);
-        }
-        else if (this.getLevel() == 5) {
-            this.xpReward = size * 2;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(50.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.2F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(5.0);
-            this.entityData.set(ID_SIZE, 4);
-        }
-        else {
-            this.xpReward = size;
-            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(1.0);
-            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.1F);
-            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(1.0);
-            this.entityData.set(ID_SIZE, 1);
-        }
+    public void setSize(int size, boolean resetHealth) {
+        int i = Mth.clamp(size, 1, 127);
+        //this.entityData.set(ID_SIZE, i);
         this.reapplyPosition();
         this.refreshDimensions();
-        if (resetHealth)
+        if (this.getLevel() == 1)
         {
+            this.xpReward = size  * 2;
+            this.entityData.set(ID_SIZE, 1);
+            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(10.0);
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.5);
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(2.0);
+            this.getAttribute(Attributes.SCALE).setBaseValue((double) (1));
+        }
+        else {
+            this.entityData.set(ID_SIZE, i);
+            this.getAttribute(Attributes.MAX_HEALTH).setBaseValue((double) (i * 10));
+            this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.5);
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue((double) (i + 1));
+            if (i == 1) {
+                this.getAttribute(Attributes.SCALE).setBaseValue((double) (1));
+            }
+            if (i == 2) {
+                this.getAttribute(Attributes.SCALE).setBaseValue((double) (1.1));
+            }
+            if (i == 4) {
+                this.getAttribute(Attributes.SCALE).setBaseValue((double) (1.2));
+            }
+        }
+        if (resetHealth) {
             this.setHealth(this.getMaxHealth());
         }
+        //SlimeCarnage.LOGGER.info("" + this.getSize());
+        this.xpReward = i;
     }
-
 
     @Override
     public int getSize()
@@ -111,14 +93,14 @@ public class BadSlime extends Slime
     @Override
     public void addAdditionalSaveData(CompoundTag compound) {
         super.addAdditionalSaveData(compound);
-        compound.putInt("Level", this.getLevel());
+        compound.putInt("Level", this.getLevel() - 1);
         compound.putInt("Size", this.getSize() - 1);
         compound.putBoolean("wasOnGround", this.wasOnGround);
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag compound) {
-        this.setLevel(compound.getInt("Level"));
+        this.setLevel(compound.getInt("Level") + 1);
         this.setSize(compound.getInt("Size") + 1, false);
         super.readAdditionalSaveData(compound);
         this.wasOnGround = compound.getBoolean("wasOnGround");
@@ -175,18 +157,30 @@ public class BadSlime extends Slime
             EntityType<? extends BadSlime> type, ServerLevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource random
     )
     {
-
         if (pos.getY() >= 64)
         {
             BlockPos blockpos = pos.below();
             return level.getDifficulty() != Difficulty.PEACEFUL && spawnType == MobSpawnType.SPAWNER || level.getBlockState(blockpos).isValidSpawn(level, blockpos, type) && isDarkEnoughToSpawn(level, pos, random);
-
         }
         else
         {
             return false;
         }
-
     }
+
+    @Nullable
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData) {
+        RandomSource randomsource = level.getRandom();
+        int i = randomsource.nextInt(3);
+        if (i < 2 && randomsource.nextFloat() < 0.5F * difficulty.getSpecialMultiplier()) {
+            i++;
+        }
+
+        int j = 1 << i;
+        this.setSize(j, true);
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData);
+    }
+
 }
 

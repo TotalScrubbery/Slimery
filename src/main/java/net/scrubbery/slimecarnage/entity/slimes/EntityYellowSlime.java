@@ -49,7 +49,7 @@ public class EntityYellowSlime extends BadSlime
             }
         }
 
-        if (this.getLevel() == 2 && randomsource.nextInt(10) == 0) {
+        if (this.getSize() == 1 && randomsource.nextInt(10) == 0) {
             Skeleton skele = EntityType.SKELETON.create(this.level());
             if (skele != null) {
                 skele.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
@@ -58,7 +58,7 @@ public class EntityYellowSlime extends BadSlime
             }
         }
 
-        if (this.getLevel() == 3 && randomsource.nextInt(12) == 0) {
+        if (this.getSize() == 2 && randomsource.nextInt(12) == 0) {
             Zombie zomb = EntityType.ZOMBIE.create(this.level());
             if (zomb != null) {
                 zomb.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
@@ -67,7 +67,7 @@ public class EntityYellowSlime extends BadSlime
             }
         }
 
-        if (this.getLevel() == 4 && randomsource.nextInt(14) == 0) {
+        if (this.getSize() == 2 && randomsource.nextInt(14) == 0) {
             Spider spidey = EntityType.SPIDER.create(this.level());
             if (spidey != null) {
                 spidey.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);
@@ -76,7 +76,7 @@ public class EntityYellowSlime extends BadSlime
             }
         }
 
-        if (this.getLevel() == 5 && randomsource.nextInt(16) == 0) {
+        if (this.getSize() == 4 && randomsource.nextInt(16) == 0) {
             Creeper creeper = EntityType.CREEPER.create(this.level());
             if (creeper != null) {
                 creeper.moveTo(this.getX(), this.getY(), this.getZ(), this.getYRot(), 0.0F);

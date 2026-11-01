@@ -196,9 +196,23 @@ public class ModItems
                 }
             });
     public static final DeferredItem<SwordItem> THEKATANA = ITEMS.register("katana",
-            () -> new SwordItem(SlimeTiers.SLIME, new Item.Properties().attributes(SwordItem.createAttributes(SlimeTiers.SLIME, 6, -2.4f))));
+            () -> new SwordItem(SlimeTiers.SLIME, new Item.Properties().attributes(SwordItem.createAttributes(SlimeTiers.SLIME, 6, -2.4f)))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.slimecarnage.katana"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
     public static final DeferredItem<Item> NINJASTAR = ITEMS.register("ninjastar",
-            () -> new NinjaStarItem(new Item.Properties().stacksTo(16)));
+            () -> new NinjaStarItem(new Item.Properties().stacksTo(16))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.slimecarnage.ninjastar"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
 
     //Mob slimes
     public static final DeferredItem<Item> ORANGE_SLIME_EGG = ITEMS.register("spawnorange",

@@ -130,7 +130,7 @@ public class SlimeCarnage
             EntityRenderers.register(ModEntities.NPCINUITSLIME.get(), InuitSlimeRenderer::new);
 
             //Ninja star that never works no matter what
-            EntityRenderers.register(ModEntities.NINJASTAR.get(), NinjaStarRenderer::new);
+            EntityRenderers.register(ModEntities.NINJASTAR.get(), ThrownItemRenderer::new);
         }
 
         @SubscribeEvent

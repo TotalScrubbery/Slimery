@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "slimecarnage:red_slime_block"
+    },
+    "I": {
+      "item": "slimecarnage:baked_slime_ingot"
+    }
+  },
+  "pattern": [
+    "III",
+    "IBI",
+    "III"
+  ],
+  "result": {
+    "count": 1,
+    "id": "slimecarnage:vending_machine_bottom_red"
+  }
+}

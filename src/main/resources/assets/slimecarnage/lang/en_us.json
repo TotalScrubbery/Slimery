@@ -31,7 +31,7 @@
   "item.slimecarnage.guard": "Katana guard",
   "item.slimecarnage.blade": "Katana blade",
   "item.slimecarnage.katana": "Katana",
-  "item.slimecarnage.ninjastar": "Ninja Star (Doesnt fully work)",
+  "item.slimecarnage.ninjastar": "Ninja Star",
 
   "item.slimecarnage.banana": "Banana",
   "item.slimecarnage.pizzaslice": "Pizza slice",
@@ -106,7 +106,7 @@
   "entity.slimecarnage.michelangelo_slime": "Michelangelo Slime",
   "entity.slimecarnage.inuit_slime": "Cold Slime",
 
-  "entity.slimecarnage.ninjastar": "Ninja Star - currently not properly functional",
+  "entity.slimecarnage.ninjastar": "Ninja Star",
 
   "entity.slimecarnage.villager_slime": "Villager Slime",
   "entity.slimecarnage.villager_slime.farmer": "Farmer",
@@ -138,6 +138,9 @@
   "tooltip.slimecarnage.handle": "Attaches to a guard and blade",
   "tooltip.slimecarnage.blade": "Attaches to a handle and guard",
   "tooltip.slimecarnage.banana": "Yum",
-  "tooltip.slimecarnage.pizzaslice": "Tasty floor pizza"
+  "tooltip.slimecarnage.pizzaslice": "Tasty floor pizza",
+  "tooltip.slimecarnage.katana": "Inflict pain",
+  "tooltip.slimecarnage.ninjastar": "Spiky throwing item"
+
 
 }

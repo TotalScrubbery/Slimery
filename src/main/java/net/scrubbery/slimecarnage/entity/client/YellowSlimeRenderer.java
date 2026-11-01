@@ -24,9 +24,9 @@ public class YellowSlimeRenderer extends MobRenderer<EntityYellowSlime, SlimeMod
     @Override
     public ResourceLocation getTextureLocation(EntityYellowSlime entity)
     {
-        switch (entity.getLevel())
+        switch (entity.getSize())
         {
-            case 5:
+            case 4:
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/yellowslimebig.png");
             default:
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/yellowslime.png");

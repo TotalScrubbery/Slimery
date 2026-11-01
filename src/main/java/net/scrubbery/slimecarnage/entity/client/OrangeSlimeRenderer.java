@@ -24,9 +24,9 @@ public class OrangeSlimeRenderer extends MobRenderer<EntityOrangeSlime, SlimeMod
     @Override
     public ResourceLocation getTextureLocation(EntityOrangeSlime entity)
     {
-        switch (entity.getLevel())
+        switch (entity.getSize())
         {
-            case 5:
+            case 4:
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/orangeslimebig.png");
             default:
                 return ResourceLocation.fromNamespaceAndPath("slimecarnage", "textures/entity/slime/orangeslime.png");
@@ -39,6 +39,7 @@ public class OrangeSlimeRenderer extends MobRenderer<EntityOrangeSlime, SlimeMod
     }
     @Override
     protected void scale(EntityOrangeSlime livingEntity, PoseStack poseStack, float partialTickTime) {
+        int i = livingEntity.getSize();
         float f = 0.999F;
         poseStack.scale(0.999F, 0.999F, 0.999F);
         poseStack.translate(0.0F, 0.001F, 0.0F);
