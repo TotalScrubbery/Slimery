@@ -50,7 +50,6 @@ public class BadSlime extends Slime
     @Override
     public void setSize(int size, boolean resetHealth) {
         int i = Mth.clamp(size, 1, 127);
-        //this.entityData.set(ID_SIZE, i);
         this.reapplyPosition();
         this.refreshDimensions();
         if (this.getLevel() == 1)
@@ -80,7 +79,6 @@ public class BadSlime extends Slime
         if (resetHealth) {
             this.setHealth(this.getMaxHealth());
         }
-        //SlimeCarnage.LOGGER.info("" + this.getSize());
         this.xpReward = i;
     }
 

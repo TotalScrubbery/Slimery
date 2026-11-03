@@ -86,6 +86,14 @@ public class ModEntities
     public static final Supplier<EntityType<EntityMummySlime>> MOBMUMMYSLIME = ENTITY_TYPES.register("mummy_slime", () ->
             register("mummy_slime", EntityType.Builder.<EntityMummySlime>of(EntityMummySlime::new, MobCategory.MONSTER)
                     .sized(0.52F, 0.52F)));
+    
+    public static final Supplier<EntityType<EntityHerobrineSlime>> MOBHEROBRINESLIME = ENTITY_TYPES.register("herobrine_slime", () ->
+            register("herobrine_slime", EntityType.Builder.<EntityHerobrineSlime>of(EntityHerobrineSlime::new, MobCategory.MONSTER)
+                    .sized(0.52F, 0.52F)));
+
+    public static final Supplier<EntityType<EntityGangSlime>> MOBGANGSLIME = ENTITY_TYPES.register("gang_slime", () ->
+            register("gang_slime", EntityType.Builder.<EntityGangSlime>of(EntityGangSlime::new, MobCategory.MONSTER)
+                    .sized(0.52F, 0.52F)));
 
     //NPC slimes
     public static final Supplier<EntityType<EntityOldManSlime>> NPCOLDMANSLIME = ENTITY_TYPES.register("old_man_slime", () ->
@@ -127,10 +135,13 @@ public class ModEntities
     public static final Supplier<EntityType<EntityInuitSlime>> NPCINUITSLIME = ENTITY_TYPES.register("inuit_slime", () ->
             register("inuit_slime", EntityType.Builder.<EntityInuitSlime>of(EntityInuitSlime::new, MobCategory.MISC)
                     .sized(0.52F, 0.52F)));
-    
-    //Ninja star that wont work so annoying
+
     public static final Supplier<EntityType<EntityNinjaStar>> NINJASTAR = ENTITY_TYPES.register("ninjastar", () ->
             register("ninjastar", EntityType.Builder.<EntityNinjaStar>of(EntityNinjaStar::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)));
+
+    public static final Supplier<EntityType<EntityCricketBall>> CRICKETBALL = ENTITY_TYPES.register("cricketball", () ->
+            register("cricketball", EntityType.Builder.<EntityCricketBall>of(EntityCricketBall::new, MobCategory.MISC)
                     .sized(0.25F, 0.25F)));
 
     public static void registerEntityAttributes(EntityAttributeCreationEvent event)
@@ -152,6 +163,7 @@ public class ModEntities
         event.put(ModEntities.MOBVAMPIRESLIME.get(), EntityVampireSlime.createAttributes().build());
         event.put(ModEntities.MOBNINJASLIME.get(), EntityNinjaSlime.createAttributes().build());
         event.put(ModEntities.MOBMUMMYSLIME.get(), EntityMummySlime.createAttributes().build());
+        event.put(ModEntities.MOBHEROBRINESLIME.get(), EntityHerobrineSlime.createAttributes().build());
 
         event.put(ModEntities.NPCOLDMANSLIME.get(), EntityOldManSlime.createMobAttributes().build());
         event.put(ModEntities.NPCDOCSLIME.get(), EntityDocSlime.createMobAttributes().build());

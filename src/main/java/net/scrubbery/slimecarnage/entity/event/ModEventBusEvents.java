@@ -51,6 +51,8 @@ public class ModEventBusEvents
         event.put(ModEntities.MOBICESLIME.get(), EntityIceSlime.createAttributes().build());
         event.put(ModEntities.MOBNINJASLIME.get(), EntityNinjaSlime.createAttributes().build());
         event.put(ModEntities.MOBMUMMYSLIME.get(), EntityMummySlime.createAttributes().build());
+        event.put(ModEntities.MOBHEROBRINESLIME.get(), EntityHerobrineSlime.createAttributes().build());
+        event.put(ModEntities.MOBGANGSLIME.get(), EntityGangSlime.createAttributes().build());
 
         event.put(ModEntities.NPCOLDMANSLIME.get(), EntityOldManSlime.createMobAttributes().build());
         event.put(ModEntities.NPCDOCSLIME.get(), EntityDocSlime.createMobAttributes().build());
