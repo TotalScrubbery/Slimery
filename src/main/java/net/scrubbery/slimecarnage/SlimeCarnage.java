@@ -116,6 +116,8 @@ public class SlimeCarnage
             EntityRenderers.register(ModEntities.MOBICESLIME.get(), IceSlimeRenderer::new);
             EntityRenderers.register(ModEntities.MOBNINJASLIME.get(), NinjaSlimeRenderer::new);
             EntityRenderers.register(ModEntities.MOBMUMMYSLIME.get(), MummySlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBHEROBRINESLIME.get(), HerobrineSlimeRenderer::new);
+            EntityRenderers.register(ModEntities.MOBGANGSLIME.get(), GangSlimeRenderer::new);
 
             //NPCs
             EntityRenderers.register(ModEntities.NPCOLDMANSLIME.get(), OldManSlimeRenderer::new);
@@ -129,8 +131,9 @@ public class SlimeCarnage
             EntityRenderers.register(ModEntities.NPCMICHELANGELOSLIME.get(), MichelangeloSlimeRenderer::new);
             EntityRenderers.register(ModEntities.NPCINUITSLIME.get(), InuitSlimeRenderer::new);
 
-            //Ninja star that never works no matter what
+            //Throwables
             EntityRenderers.register(ModEntities.NINJASTAR.get(), ThrownItemRenderer::new);
+            EntityRenderers.register(ModEntities.CRICKETBALL.get(), ThrownItemRenderer::new);
         }
 
         @SubscribeEvent

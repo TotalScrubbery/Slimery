@@ -9,6 +9,7 @@ public class EntityMummySlime extends BadSlime
     {
         super(entityType, level);
         this.setLevel(1);
+        this.fireImmune();
     }
 
 }

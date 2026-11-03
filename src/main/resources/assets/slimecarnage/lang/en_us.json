@@ -32,6 +32,7 @@
   "item.slimecarnage.blade": "Katana blade",
   "item.slimecarnage.katana": "Katana",
   "item.slimecarnage.ninjastar": "Ninja Star",
+  "item.slimecarnage.cricketball": "Cricket Ball",
 
   "item.slimecarnage.banana": "Banana",
   "item.slimecarnage.pizzaslice": "Pizza slice",
@@ -53,6 +54,8 @@
   "item.slimecarnage.spawnice": "Spawn Ice Slime",
   "item.slimecarnage.spawnninja": "Spawn Ninja Slime",
   "item.slimecarnage.spawnmummy": "Spawn Mummy Slime",
+  "item.slimecarnage.spawnherobrine": "Spawn Herobrine Slime",
+  "item.slimecarnage.spawngang": "Spawn Gang Slime",
 
   "item.slimecarnage.spawnoldman": "Spawn Old Man Slime",
   "item.slimecarnage.spawndoc": "Spawn Doc Slime",
@@ -95,6 +98,8 @@
   "entity.slimecarnage.ice_slime": "Ice Slime",
   "entity.slimecarnage.ninja_slime": "Ninja Slime",
   "entity.slimecarnage.mummy_slime": "Mummy Slime",
+  "entity.slimecarnage.herobrine_slime": "Herobrine Slime",
+  "entity.slimecarnage.gang_slime": "Gang Slime",
 
   "entity.slimecarnage.old_man_slime": "Old Man Slime",
   "entity.slimecarnage.doc_slime": "Doc Slime",
@@ -107,6 +112,7 @@
   "entity.slimecarnage.inuit_slime": "Cold Slime",
 
   "entity.slimecarnage.ninjastar": "Ninja Star",
+  "entity.slimecarnage.cricketball": "Cricket Ball",
 
   "entity.slimecarnage.villager_slime": "Villager Slime",
   "entity.slimecarnage.villager_slime.farmer": "Farmer",

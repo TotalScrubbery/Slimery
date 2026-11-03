@@ -57,6 +57,7 @@ public class SlimeTab
                         output.accept(ModItems.KATANABLADE);
                         output.accept(ModItems.THEKATANA);
                         output.accept(ModItems.NINJASTAR);
+                        output.accept(ModItems.CRICKETBALL);
 
                         output.accept(ModItems.SLIME_BANANA);
                         output.accept(ModItems.SLIME_PIZZA);
@@ -90,6 +91,8 @@ public class SlimeTab
                         output.accept(ModItems.ICE_SLIME_EGG);
                         output.accept(ModItems.NINJA_SLIME_EGG);
                         output.accept(ModItems.MUMMY_SLIME_EGG);
+                        output.accept(ModItems.HEROBRINE_SLIME_EGG);
+                        output.accept(ModItems.GANG_SLIME_EGG);
 
                         output.accept(ModItems.OLD_MAN_EGG);
                         output.accept(ModItems.DOC_EGG);

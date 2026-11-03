@@ -7,6 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.DeferredSpawnEggItem;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import net.scrubbery.slimecarnage.Items.custom.CricketBallItem;
 import net.scrubbery.slimecarnage.Items.custom.NinjaStarItem;
 import net.scrubbery.slimecarnage.Items.custom.SlimeFood;
 import net.scrubbery.slimecarnage.SlimeCarnage;
@@ -214,6 +215,16 @@ public class ModItems
                 }
             });
 
+    public static final DeferredItem<Item> CRICKETBALL = ITEMS.register("cricketball",
+            () -> new CricketBallItem(new Item.Properties().stacksTo(16))
+            {
+                @Override
+                public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+                    tooltipComponents.add(Component.translatable("tooltip.slimecarnage.cricketball"));
+                    super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+                }
+            });
+
     //Mob slimes
     public static final DeferredItem<Item> ORANGE_SLIME_EGG = ITEMS.register("spawnorange",
             () -> new DeferredSpawnEggItem(ModEntities.MOBORANGESLIME, 0xffffff, 0xffffff,
@@ -281,6 +292,14 @@ public class ModItems
 
     public static final DeferredItem<Item> MUMMY_SLIME_EGG = ITEMS.register("spawnmummy",
             () -> new DeferredSpawnEggItem(ModEntities.MOBMUMMYSLIME, 0xffffff, 0xffffff,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> HEROBRINE_SLIME_EGG = ITEMS.register("spawnherobrine",
+            () -> new DeferredSpawnEggItem(ModEntities.MOBHEROBRINESLIME, 0xffffff, 0xffffff,
+                    new Item.Properties()));
+
+    public static final DeferredItem<Item> GANG_SLIME_EGG = ITEMS.register("spawngang",
+            () -> new DeferredSpawnEggItem(ModEntities.MOBGANGSLIME, 0xffffff, 0xffffff,
                     new Item.Properties()));
 
     //NPCs
